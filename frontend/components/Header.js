@@ -6,12 +6,14 @@ import NProgress from 'nprogress';
 
 // Listen for events on the router
 // https://nextjs.org/docs/routing/introduction
+// TODO - Research next/router and NProgress
+
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
 }
 Router.onRouteChangeComplete = () => {
-  NProgrress.done();
+  NProgress.done();
 }
 Router.onRouteChangeError = () => {
   NProgress.done();

@@ -1,11 +1,24 @@
-"Import all types and inputs from prisma.graphql, made available to us if needed"
-
 # import * from './generated/prisma.graphql'
+
+"Public facing API - create new functions or queries. Resolvers contain the advanced logic for these mutations/queries"
 
 type Mutation {
   createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
+  "Only passing the data that is requirerd"
+  updateItem(id: ID!, title: String, description: String, price: Int): Item
+  deleteItem(id: ID!): Item
 }
 
+"""
+Need to modify items query to take arugments for the pagination
+- where (for searching)
+- orderBy (most recent, least recent)
+- skip (integer) ==> skip first four items
+- first (integer) ==> bring back 4 items total
+* This matches with prisma.graphql
+"""
 type Query {
-  items: [Item]!
+  items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, first: Int): [Item]!
+  item(where: ItemWhereUniqueInput!): Item
+  itemsConnection(where: ItemWhereInput): ItemConnection!
 }

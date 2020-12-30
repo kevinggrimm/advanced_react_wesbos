@@ -7,11 +7,14 @@ const Query = {
   // helpful for quickly mocking something up; no need for authentication, push/pull data to dB
   // add custom resolvers as you need to add custom logic
   items: forwardTo('db'),
+  // no extra logic (permissions, etc) - can just forward over to DB
+  item: forwardTo('db'),
   // async items(parent, args, ctx, info) {
   //   const items = await ctx.db.query.items();
     
   //   return items
   // }
+  itemsConnection: forwardTo('db'),
 };
 
 module.exports = Query;

@@ -18,7 +18,8 @@ function createServer() {
       Mutation,
       Query
     },
-    resolverValidationOption: {
+    // turn off errrors + warnings
+    resolverValidationOptions: {
       requireResolversForResolveType: false,
     },
     // Need to be able to access the DB from the resolvers

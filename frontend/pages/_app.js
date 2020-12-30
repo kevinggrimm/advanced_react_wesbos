@@ -19,7 +19,7 @@ class MyApp extends App {
     // list of items, shopping carts, etc -- all need to be fired off and resolved before rendering the page
     // returns all data
     // NOTE: nextJS + Apollo documentation have examples for getting this to work for Server Side rendering
-    if(Component.getInitialProps) {
+    if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
     // this exposes the query to the user
@@ -37,10 +37,8 @@ class MyApp extends App {
           </Page>
         </ApolloProvider>
       </Container>
-    )
+    );
   }
-
-
 }
 
 // wrapping exposes 'apollo'
